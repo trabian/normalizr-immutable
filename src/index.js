@@ -4,9 +4,11 @@
 import { Record, Map, List, Iterable } from 'immutable';
 
 //Shim for new Proxy instead of Proxy.create
-import Proxy from 'harmony-proxy';
+// import Proxy from 'harmony-proxy';
 //Should patch proxy to work properly
 // import Reflect from 'harmony-reflect';
+
+const Proxy = undefined;
 
 import RecordEntitySchema from './RecordEntitySchema';
 import IterableSchema from './IterableSchema';
