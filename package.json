@@ -1,6 +1,6 @@
 {
   "name": "@trabian/normalizr-immutable",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Normalizes JSON to immutable Records according to schema for Redux applications and provide proxied access to properties",
   "main": "lib/index.js",
   "private": false,

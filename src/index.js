@@ -263,7 +263,6 @@ function normalize(obj, schema, options = {
 
   let bag = {};
   let entityStructure = {};
-  let keyStructure = {};
   let results = [];
 
   //This will either return a sequence, an id or a Proxy object
@@ -283,22 +282,11 @@ function normalize(obj, schema, options = {
   let entities = null;
 
   for(let schemaKey in bag){
-    keyStructure[schemaKey] = null;
-
-    if(options.useMapsForEntityObjects){
-      entityStructure[schemaKey] = new Map(bag[schemaKey]);
-    }else{
-      const ValueStructure = new Record(bag[schemaKey]);
-      entityStructure[schemaKey] = new ValueStructure({});
-    }
-
+    entityStructure[schemaKey] = new Map(bag[schemaKey]);
   }
 
-  const EntityStructure = new Record(keyStructure);
-  entities = new EntityStructure(entityStructure);
-
-  return new NormalizedRecord({
-    entities: entities,
+  return new Map({
+    entities: new Map(entityStructure),
     result: results
   });
 }
